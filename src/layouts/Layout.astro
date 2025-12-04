@@ -44,6 +44,8 @@ const fullTitle = `${title} | ${siteConfig.name}`;
     <meta name="title" content={fullTitle} />
     <meta name="description" content={description} />
     <meta name="author" content={author || siteConfig.name} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1d4ed8" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />
@@ -71,13 +73,49 @@ const fullTitle = `${title} | ${siteConfig.name}`;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
-    <!-- Fonts (customize as needed) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Fonts - optimized loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Structured Data (LocalBusiness) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": siteConfig.name,
+      "description": siteConfig.description,
+      "url": siteConfig.url,
+      "telephone": siteConfig.contact.phone,
+      "email": siteConfig.contact.email,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": siteConfig.contact.address.city,
+        "addressRegion": siteConfig.contact.address.state,
+        "addressCountry": "CA"
+      },
+      "openingHours": "Mo-Su 07:30-19:30",
+      "priceRange": "$$",
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 52.1579,
+          "longitude": -106.6702
+        },
+        "geoRadius": "50000"
+      }
+    })} />
 
     <!-- Google Analytics (if configured) -->
     {siteConfig.googleAnalyticsId && (
@@ -101,8 +139,9 @@ const fullTitle = `${title} | ${siteConfig.name}`;
     )}
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-900 antialiased">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <Navigation />
-    <main class="flex-1">
+    <main id="main-content" class="flex-1">
       <slot />
     </main>
     <Footer />
