@@ -1,8 +1,10 @@
-# NOCMS
+# Fire & Frost Mechanical
 
-A no-CMS website builder for SMBs. Generate professional websites for HVAC, Plumbing, and other service businesses in minutes.
+Professional HVAC and refrigeration services website for Saskatoon and area.
 
 Built with **Astro 5**, **Tailwind CSS 4**, and **TypeScript**.
+
+**Live site**: https://fireandfrostmechanical.ca
 
 ---
 
@@ -10,51 +12,17 @@ Built with **Astro 5**, **Tailwind CSS 4**, and **TypeScript**.
 
 ```bash
 # Clone
-git clone https://github.com/stooky/nocms.git my-client-site
-cd my-client-site
+git clone https://github.com/yourusername/ffm2.git
+cd ffm2
 
-# Install
+# Install dependencies
 npm install
-
-# Launch with a vertical
-npm run launch hvac
 
 # Start dev server
 npm run dev
 ```
 
-Then edit `src/config/vertical.ts` with your client's information.
-
----
-
-## Available Verticals
-
-| Vertical | Command | Description |
-|----------|---------|-------------|
-| HVAC | `npm run launch hvac` | Heating, cooling, air quality |
-| Plumbing | `npm run launch plumbing` | Drains, water heaters, fixtures |
-
-More verticals coming soon: Electrical, Roofing, Dental, Legal, etc.
-
----
-
-## Features
-
-Each vertical includes configurable features:
-
-| Feature | HVAC | Plumbing | Description |
-|---------|:----:|:--------:|-------------|
-| Emergency Banner | ✓ | ✓ | Sticky 24/7 emergency CTA |
-| Service Areas | ✓ | ✓ | Coverage map + city pages |
-| Maintenance Plans | ✓ | - | Recurring service plans |
-| Financing | ✓ | ✓ | Payment options display |
-| Before/After Gallery | ✓ | ✓ | Project photo gallery |
-| Reviews | ✓ | ✓ | Customer testimonials |
-| Blog | ✓ | ✓ | Content marketing |
-| Coupons | - | ✓ | Special offers page |
-| Seasonal Messaging | ✓ | - | Auto-adjust by season |
-
-Toggle any feature on/off in the config.
+Visit http://localhost:4321
 
 ---
 
@@ -65,147 +33,143 @@ Toggle any feature on/off in the config.
 | `npm run dev` | Start dev server (localhost:4321) |
 | `npm run build` | Build for production |
 | `npm run preview` | Preview production build |
-| `npm run launch <vertical>` | Initialize a vertical |
-| `npm run validate` | Check config for issues |
 
 ---
 
 ## Project Structure
 
 ```
-nocms/
-├── docs/                    # Documentation
-│   ├── SETUP.md            # Full setup guide
-│   ├── WORKFLOW.md         # Git workflow guide
-│   ├── VERTICALS.md        # All verticals overview
-│   └── GAMEPLAN-*.md       # Vertical-specific plans
-├── scripts/
-│   ├── launch.js           # Vertical launcher
-│   └── validate.js         # Config validator
+ffm2/
+├── deploy/                  # Deployment scripts & config
+│   ├── install.sh          # Ubuntu server installation
+│   ├── setup-ssl.sh        # Let's Encrypt SSL setup
+│   ├── update.sh           # Redeploy script
+│   ├── nginx.conf          # Nginx configuration
+│   └── README.md           # Deployment guide
 ├── src/
+│   ├── assets/
+│   │   └── images/         # Optimized images (WebP)
 │   ├── components/         # Reusable UI components
 │   ├── config/
-│   │   ├── site.ts         # Base site config
-│   │   └── vertical.ts     # Active vertical config (generated)
+│   │   └── site.ts         # Site configuration
 │   ├── content/
 │   │   └── blog/           # Blog posts (markdown)
 │   ├── layouts/
 │   │   └── Layout.astro    # Main layout
 │   ├── pages/              # Route pages
-│   ├── styles/
-│   │   └── global.css      # Global styles
-│   └── verticals/          # Vertical configurations
-│       └── home-services/
-│           └── config/
-│               ├── hvac.ts
-│               ├── plumbing.ts
-│               └── types.ts
-└── public/                  # Static assets
+│   └── styles/
+│       └── global.css      # Global styles
+└── public/                 # Static assets
 ```
 
 ---
 
 ## Configuration
 
-After running `npm run launch <vertical>`, edit `src/config/vertical.ts`:
-
-### Business Info (Required)
+Edit `src/config/site.ts` to update business information:
 
 ```typescript
-business: {
-  name: 'Your Business Name',
-  phone: '(555) 123-4567',
-  email: 'info@yourbusiness.com',
-  address: {
-    street: '123 Main St',
-    city: 'Your City',
-    state: 'ST',
-    zip: '12345',
+export const siteConfig = {
+  name: 'Fire & Frost Mechanical',
+  contact: {
+    email: 'clay@fireandfrostmechanical.ca',
+    phone: '306-914-8194',
+    address: {
+      city: 'Saskatoon',
+      state: 'SK',
+    },
   },
-  license: 'License #12345',
-  yearEstablished: 2010,
-},
-```
-
-### Toggle Features
-
-```typescript
-features: {
-  emergency: { enabled: true },
-  serviceArea: { enabled: true },
-  maintenancePlans: { enabled: true },
-  financing: { enabled: false },  // Disable if no financing partner
-  gallery: { enabled: true },
-  reviews: { enabled: true },
-  blog: { enabled: true },
-  // ...
-},
+  hours: {
+    weekdays: '7:30 AM - 7:30 PM',
+    emergency: '24/7 On-Call Available',
+  },
+};
 ```
 
 ---
 
-## Workflow for Client Sites
+## Services
 
-### Option 1: Branch per client
-
-```bash
-git checkout main
-git checkout -b sites/client-name
-npm run launch hvac
-# customize, commit, deploy
-```
-
-### Option 2: Clone for each client
-
-```bash
-git clone https://github.com/stooky/nocms.git client-name
-cd client-name
-npm run launch hvac
-# customize, deploy
-```
-
-See `docs/WORKFLOW.md` for complete guide.
+- **Heating** - Furnace repair and maintenance
+- **Cooling** - AC repair and maintenance
+- **Refrigeration** - Walk-in coolers and freezers
 
 ---
 
-## Deployment
+## Deployment (Ubuntu/Vultr)
 
-### Vercel
-```bash
-npm i -g vercel
-vercel
-```
+Full deployment instructions in `deploy/README.md`.
 
-### Netlify
-```bash
-npm i -g netlify-cli
-netlify deploy --prod
-```
+### Quick Deploy
 
-### Static Host
+1. **Create server** on Vultr (Ubuntu 22.04/24.04, $5/mo)
+
+2. **Configure DNS** - Point A records to server IP
+
+3. **Upload files**:
+   ```bash
+   scp -r ./* root@YOUR_SERVER_IP:/var/www/fireandfrostmechanical.ca/
+   ```
+
+4. **Install**:
+   ```bash
+   ssh root@YOUR_SERVER_IP
+   cd /var/www/fireandfrostmechanical.ca/deploy
+   chmod +x *.sh
+   ./install.sh
+   ```
+
+5. **Enable SSL** (after DNS propagates):
+   ```bash
+   ./setup-ssl.sh
+   ```
+
+### Update Site
+
+After making changes:
+
 ```bash
-npm run build
-# Upload dist/ folder
+# Upload changes
+scp -r ./* root@YOUR_SERVER_IP:/var/www/fireandfrostmechanical.ca/
+
+# Rebuild on server
+ssh root@YOUR_SERVER_IP
+cd /var/www/fireandfrostmechanical.ca/deploy
+./update.sh
 ```
 
 ---
 
-## Documentation
+## Image Optimization
 
-| Document | Description |
-|----------|-------------|
-| [SETUP.md](docs/SETUP.md) | Complete setup guide |
-| [WORKFLOW.md](docs/WORKFLOW.md) | Git workflow and branching |
-| [VERTICALS.md](docs/VERTICALS.md) | All verticals overview |
-| [GAMEPLAN-HVAC-PLUMBING.md](docs/GAMEPLAN-HVAC-PLUMBING.md) | HVAC/Plumbing details |
+Images in `src/assets/images/` are automatically optimized during build:
+
+- Converted to WebP format
+- Resized to display dimensions
+- Compressed with quality settings
+
+| Image | Original | Optimized | Reduction |
+|-------|----------|-----------|-----------|
+| Logo | 181 KB | 4 KB | 97.8% |
+| Photos | 960 KB | 3 KB | 99.7% |
 
 ---
 
 ## Tech Stack
 
-- **[Astro](https://astro.build)** - Static site framework
-- **[Tailwind CSS](https://tailwindcss.com)** - Utility-first CSS
+- **[Astro 5](https://astro.build)** - Static site framework
+- **[Tailwind CSS 4](https://tailwindcss.com)** - Utility-first CSS
 - **[TypeScript](https://typescriptlang.org)** - Type safety
+- **[Sharp](https://sharp.pixelplumbing.com)** - Image optimization
+
+---
+
+## Contact
+
+**Fire & Frost Mechanical**
+Saskatoon, SK
+Phone: 306-914-8194
+Email: clay@fireandfrostmechanical.ca
 
 ---
 

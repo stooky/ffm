@@ -1,5 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import { siteConfig } from '../config/site';
+import logoImage from '../assets/images/firefrost2.png';
+
+// Calculate width to maintain aspect ratio at desired height
+const logoHeight = 48;
+const logoWidth = Math.round(logoHeight * (766 / 366));
 
 const socialIcons: Record<string, string> = {
   twitter: `<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
@@ -17,8 +23,17 @@ const activeSocials = Object.entries(siteConfig.social).filter(([, url]) => url)
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-4">
       <!-- Brand Column -->
       <div class="lg:col-span-1">
-        <a href="/" class="text-xl font-bold text-gray-900">
-          {siteConfig.name}
+        <a href="/" class="inline-block">
+          <Image
+            src={logoImage}
+            alt={siteConfig.name}
+            height={logoHeight}
+            width={logoWidth}
+            format="webp"
+            quality={90}
+            loading="lazy"
+            class="h-12 w-auto"
+          />
         </a>
         <p class="mt-4 text-sm text-gray-600">
           {siteConfig.description}

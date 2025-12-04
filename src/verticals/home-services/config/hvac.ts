@@ -22,17 +22,17 @@ export const hvacConfig: HomeServicesConfig = {
   // Required: These must be filled out for the site to function
   // ============================================================================
   business: {
-    name: 'ABC Heating & Cooling',
-    phone: '(555) 123-4567',
-    email: 'info@abcheating.com',
+    name: 'Fire & Frost Mechanical',
+    phone: '306-914-8194',
+    email: 'clay@fireandfrostmechanical.ca',
     address: {
-      street: '123 Main Street',
-      city: 'Springfield',
-      state: 'IL',
-      zip: '62701',
+      street: '',
+      city: 'Saskatoon',
+      state: 'SK',
+      zip: '',
     },
-    license: 'IL HVAC License #12345',
-    yearEstablished: 2010,
+    license: 'Saskatchewan Licensed',
+    yearEstablished: null,
   },
 
   // ============================================================================
@@ -128,10 +128,10 @@ export const hvacConfig: HomeServicesConfig = {
   // Only used if features.emergency.enabled = true
   // ============================================================================
   emergency: {
-    headline: "No Heat? No AC? We're On Our Way!",
-    subheadline: '24/7 Emergency HVAC Service',
-    responseTime: '60 minutes or less',
-    phone: '(555) 123-4567', // Can differ from main number
+    headline: "Furnace Down? AC Not Working? We Can Help!",
+    subheadline: 'HVAC & Refrigeration Service - Saskatoon',
+    responseTime: '24/7 on-call service available',
+    phone: '306-914-8194', // Can differ from main number
 
     // Banner styling
     variant: 'sticky', // 'sticky' | 'inline'
@@ -150,20 +150,16 @@ export const hvacConfig: HomeServicesConfig = {
   // ============================================================================
   serviceArea: {
     // Primary service radius
-    radiusMiles: 30,
+    radiusMiles: 50,
 
     // Cities served (used for local SEO and service area page)
     cities: [
-      'Springfield',
-      'Decatur',
-      'Champaign',
-      'Bloomington',
-      'Peoria',
+      'Saskatoon',
     ],
 
-    // ZIP codes (optional, for more precise targeting)
+    // Postal codes (optional, for more precise targeting)
     zipCodes: [
-      '62701', '62702', '62703', '62704',
+      'S7',
     ],
 
     // Google Maps embed URL (optional)
@@ -171,12 +167,12 @@ export const hvacConfig: HomeServicesConfig = {
     mapEmbedUrl: '',
 
     // Generate individual city pages for SEO
-    generateCityPages: true,
+    generateCityPages: false,
 
     // City page template
     cityPageTemplate: {
-      headlinePattern: 'HVAC Services in {city}, {state}',
-      descriptionPattern: 'Trusted heating and cooling services for {city} residents. 24/7 emergency service, upfront pricing, satisfaction guaranteed.',
+      headlinePattern: 'HVAC Services in {city}, Saskatchewan',
+      descriptionPattern: 'Professional heating, cooling, and refrigeration services for {city} and area. Contact for pricing.',
     },
   },
 
@@ -186,9 +182,9 @@ export const hvacConfig: HomeServicesConfig = {
   // ============================================================================
   maintenancePlans: {
     // Program branding
-    programName: 'Comfort Club',
-    headline: 'Join the Comfort Club',
-    description: 'Keep your HVAC system running smoothly year-round with our maintenance plans.',
+    programName: 'Maintenance Plan',
+    headline: 'Preventative Maintenance',
+    description: 'Keep your HVAC system running smoothly through Saskatchewan\'s extreme seasons with regular maintenance.',
 
     // Plan tiers
     plans: [
@@ -300,11 +296,11 @@ export const hvacConfig: HomeServicesConfig = {
     projects: [
       {
         id: 'project-1',
-        title: 'New Trane XR15 Installation',
-        location: 'Springfield, IL',
+        title: 'Furnace Installation',
+        location: 'Saskatoon, SK',
         beforeImage: '/images/gallery/project-1-before.jpg',
         afterImage: '/images/gallery/project-1-after.jpg',
-        description: 'Replaced 20-year-old system with high-efficiency Trane unit.',
+        description: 'New furnace installation for a Saskatoon home.',
         category: 'installation',
       },
       // Add more projects...
@@ -344,27 +340,27 @@ export const hvacConfig: HomeServicesConfig = {
     manualReviews: [
       {
         rating: 5,
-        text: "They came out same day and fixed our AC. Fair price, great work! Highly recommend.",
-        author: 'John D.',
-        location: 'Springfield, IL',
+        text: "Clay was very professional when he inspected my furnace and A/C unit. He was able to diagnose the problem very quickly and explained what the issue was in a manner that I could understand. Honest and no upsell pressure. Will definitely use Fire & Frost Mechanical again in the future.",
+        author: 'Jeremy Dela Cruz',
+        location: 'Saskatoon, SK',
         source: 'Google',
-        date: '2024-07-15',
+        date: '2024-01-15',
       },
       {
         rating: 5,
-        text: "Best HVAC company in town. They installed our new furnace and did an excellent job. Very professional.",
-        author: 'Sarah M.',
-        location: 'Decatur, IL',
+        text: "Clay helped us when we moved to our new place to get our home and garage heaters serviced. Clay is very professional and easy to work with. I recommend giving him a call!",
+        author: 'Andrew Owen',
+        location: 'Saskatoon, SK',
         source: 'Google',
         date: '2024-06-22',
       },
       {
         rating: 5,
-        text: "Called at 10pm with no heat. They were here within an hour. Lifesavers!",
-        author: 'Mike R.',
-        location: 'Champaign, IL',
+        text: "Didn't have hot water for two days trying to fix it myself, Clay came and in ten minutes fixed the issue. He is the best!",
+        author: 'Calebhe Jordan',
+        location: 'Saskatoon, SK',
         source: 'Google',
-        date: '2024-01-10',
+        date: '2024-07-28',
       },
     ],
 
@@ -493,34 +489,28 @@ export const hvacConfig: HomeServicesConfig = {
   // ============================================================================
   services: {
     // Service categories to display
-    categories: ['Heating', 'Cooling', 'Indoor Air Quality', 'Maintenance'],
+    categories: ['Heating', 'Cooling', 'Refrigeration'],
 
     // Featured services (shown prominently on homepage)
     featured: [
-      'ac-repair',
       'furnace-repair',
-      'ac-installation',
-      'furnace-installation',
-      'maintenance-plans',
-      'duct-cleaning',
+      'furnace-maintenance',
+      'ac-repair',
+      'ac-maintenance',
+      'walk-in-cooler',
+      'walk-in-freezer',
     ],
 
     // Emergency services (shown with emergency badge)
     emergency: [
-      'ac-repair',
       'furnace-repair',
-      'heat-pump-repair',
-      'no-heat',
-      'no-cooling',
+      'ac-repair',
+      'walk-in-cooler',
+      'walk-in-freezer',
     ],
 
     // Services with financing available
-    financingAvailable: [
-      'ac-installation',
-      'furnace-installation',
-      'heat-pump-installation',
-      'complete-system',
-    ],
+    financingAvailable: [],
   },
 
   // ============================================================================
@@ -528,20 +518,16 @@ export const hvacConfig: HomeServicesConfig = {
   // Display brand logos and mention in copy
   // ============================================================================
   brands: {
-    headline: 'We Service All Major Brands',
+    headline: 'Quality Equipment We Install',
 
     // Brands list
     list: [
-      { name: 'Trane', logo: '/images/brands/trane.png', featured: true },
-      { name: 'Carrier', logo: '/images/brands/carrier.png', featured: true },
+      { name: 'Ducane', logo: '/images/brands/ducane.png', featured: true },
       { name: 'Lennox', logo: '/images/brands/lennox.png', featured: true },
-      { name: 'Rheem', logo: '/images/brands/rheem.png', featured: false },
+      { name: 'Rheem', logo: '/images/brands/rheem.png', featured: true },
+      { name: 'Carrier', logo: '/images/brands/carrier.png', featured: false },
       { name: 'Goodman', logo: '/images/brands/goodman.png', featured: false },
       { name: 'York', logo: '/images/brands/york.png', featured: false },
-      { name: 'Bryant', logo: '/images/brands/bryant.png', featured: false },
-      { name: 'American Standard', logo: '/images/brands/american-standard.png', featured: false },
-      { name: 'Daikin', logo: '/images/brands/daikin.png', featured: false },
-      { name: 'Mitsubishi', logo: '/images/brands/mitsubishi.png', featured: false },
     ],
 
     // Show on homepage
@@ -558,49 +544,31 @@ export const hvacConfig: HomeServicesConfig = {
 
     badges: [
       {
-        id: 'licensed',
-        label: 'Licensed & Insured',
-        sublabel: 'IL License #12345',
+        id: 'professional',
+        label: 'Professional',
+        sublabel: 'Service',
         icon: 'shield-check',
         enabled: true,
       },
       {
-        id: 'bbb',
-        label: 'BBB A+ Rating',
-        sublabel: 'Accredited Business',
-        icon: 'award',
-        enabled: true,
-        // PREREQUISITE: BBB accreditation
-        prerequisite: 'Requires BBB accreditation',
-      },
-      {
-        id: 'google',
-        label: '5★ Google Rating',
-        sublabel: '200+ Reviews',
-        icon: 'star',
-        enabled: true,
-        // PREREQUISITE: Google Business Profile
-        prerequisite: 'Requires Google Business Profile',
-      },
-      {
-        id: 'satisfaction',
-        label: '100% Satisfaction',
-        sublabel: 'Guaranteed',
+        id: 'honest',
+        label: 'Honest',
+        sublabel: 'No Upselling',
         icon: 'check-circle',
         enabled: true,
       },
       {
-        id: 'background',
-        label: 'Background Checked',
-        sublabel: 'Technicians',
-        icon: 'user-check',
+        id: 'available',
+        label: '24/7',
+        sublabel: 'On-Call Service',
+        icon: 'star',
         enabled: true,
       },
       {
-        id: 'upfront',
-        label: 'Upfront Pricing',
-        sublabel: 'No Surprises',
-        icon: 'dollar-sign',
+        id: 'local',
+        label: 'Local Business',
+        sublabel: 'Saskatoon & Area',
+        icon: 'home',
         enabled: true,
       },
     ],
@@ -611,10 +579,10 @@ export const hvacConfig: HomeServicesConfig = {
   // ============================================================================
   seo: {
     // Title template
-    titleTemplate: '{page} | {business} | {city} HVAC',
+    titleTemplate: '{page} | {business} | Saskatoon HVAC',
 
     // Default meta description
-    defaultDescription: 'Professional HVAC services in {city}. 24/7 emergency service, heating & cooling repair, installation, and maintenance. Licensed, insured, satisfaction guaranteed.',
+    defaultDescription: 'Professional HVAC and refrigeration services in Saskatoon and area. Heating, cooling, walk-in cooler and freezer repair and maintenance. 24/7 on-call service.',
 
     // Schema.org type
     schemaType: 'HVACBusiness',

@@ -1,53 +1,53 @@
 /**
  * Site Configuration
- * Update these values for each new SMB client
+ * Fire & Frost Mechanical - Saskatoon, SK
  */
 
 export const siteConfig = {
   // Basic Info
-  name: "Business Name",
-  tagline: "Your compelling tagline here",
-  description: "A brief description of your business for SEO purposes. Keep it under 160 characters.",
-  url: "https://example.com",
+  name: "Fire & Frost Mechanical",
+  tagline: "Your Comfort, Our Priority",
+  description: "Professional HVAC services in Saskatoon and area. Heating, cooling, and refrigeration repair, maintenance, and installation. 24/7 on-call service available.",
+  url: "https://fireandfrostmechanical.ca",
 
   // Contact Information
   contact: {
-    email: "hello@example.com",
-    phone: "+1 (555) 123-4567",
+    email: "clay@fireandfrostmechanical.ca",
+    phone: "306-914-8194",
     address: {
-      street: "123 Main Street",
-      city: "Anytown",
-      state: "ST",
-      zip: "12345",
-      country: "USA",
+      street: "",
+      city: "Saskatoon",
+      state: "SK",
+      zip: "",
+      country: "Canada",
     },
   },
 
   // Social Media Links
   social: {
-    twitter: "https://twitter.com/yourbusiness",
-    linkedin: "https://linkedin.com/company/yourbusiness",
-    facebook: "https://facebook.com/yourbusiness",
-    instagram: "https://instagram.com/yourbusiness",
-    youtube: "", // Leave empty if not used
+    twitter: "",
+    linkedin: "",
+    facebook: "",
+    instagram: "",
+    youtube: "",
   },
 
   // Business Hours
   hours: {
-    monday: "9:00 AM - 5:00 PM",
-    tuesday: "9:00 AM - 5:00 PM",
-    wednesday: "9:00 AM - 5:00 PM",
-    thursday: "9:00 AM - 5:00 PM",
-    friday: "9:00 AM - 5:00 PM",
-    saturday: "Closed",
-    sunday: "Closed",
+    monday: "7:30 AM - 7:30 PM",
+    tuesday: "7:30 AM - 7:30 PM",
+    wednesday: "7:30 AM - 7:30 PM",
+    thursday: "7:30 AM - 7:30 PM",
+    friday: "7:30 AM - 7:30 PM",
+    saturday: "7:30 AM - 7:30 PM",
+    sunday: "7:30 AM - 7:30 PM",
   },
 
   // Navigation Links
   navigation: [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
+    { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ],
@@ -57,12 +57,12 @@ export const siteConfig = {
     company: [
       { name: "About Us", href: "/about" },
       { name: "Our Team", href: "/about#team" },
-      { name: "Careers", href: "/careers" },
+      { name: "Service Areas", href: "/services#areas" },
     ],
     services: [
-      { name: "Service One", href: "/services#service-one" },
-      { name: "Service Two", href: "/services#service-two" },
-      { name: "Service Three", href: "/services#service-three" },
+      { name: "Heating", href: "/services#heating" },
+      { name: "Cooling", href: "/services#cooling" },
+      { name: "Refrigeration", href: "/services#refrigeration" },
     ],
     legal: [
       { name: "Privacy Policy", href: "/privacy" },
@@ -77,7 +77,7 @@ export const siteConfig = {
   googleAnalyticsId: "",
 
   // Copyright
-  copyright: `© ${new Date().getFullYear()} Business Name. All rights reserved.`,
+  copyright: `© ${new Date().getFullYear()} Fire & Frost Heating & Cooling. All rights reserved.`,
 };
 
 export type SiteConfig = typeof siteConfig;

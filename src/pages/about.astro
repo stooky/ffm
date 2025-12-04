@@ -1,83 +1,64 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import CTA from '../components/CTA.astro';
 import { siteConfig } from '../config/site';
-
-// Team members - customize for each client
-const team = [
-  {
-    name: 'John Smith',
-    role: 'Founder & CEO',
-    bio: 'John founded the company with a vision to help small businesses thrive.',
-    image: null, // Add image path when available
-  },
-  {
-    name: 'Jane Doe',
-    role: 'Operations Manager',
-    bio: 'Jane ensures everything runs smoothly and clients receive exceptional service.',
-    image: null,
-  },
-  {
-    name: 'Mike Johnson',
-    role: 'Lead Consultant',
-    bio: 'Mike brings years of industry experience to every client engagement.',
-    image: null,
-  },
-];
+import clayImage from '../assets/images/clay2.png';
 
 // Company values
 const values = [
   {
-    title: 'Integrity',
-    description: 'We operate with honesty and transparency in everything we do.',
+    title: 'Professional',
+    description: 'Expert service with quick diagnostics and quality workmanship on every job.',
   },
   {
-    title: 'Excellence',
-    description: 'We strive for the highest quality in our work and service.',
+    title: 'Honest',
+    description: 'Clear explanations and no upsell pressure. We tell you what you need.',
   },
   {
-    title: 'Customer Focus',
-    description: "Your success is our success. We're committed to your goals.",
+    title: 'Reliable',
+    description: '24/7 on-call service available. We\'re here when you need us most.',
   },
   {
-    title: 'Innovation',
-    description: 'We continuously seek better ways to serve our clients.',
+    title: 'Local',
+    description: 'Proudly serving Saskatoon and the surrounding area.',
   },
 ];
 ---
 
 <Layout
   title="About Us"
-  description="Learn more about our company, our team, and our mission to help businesses succeed."
+  description="Learn about Fire & Frost Mechanical - professional HVAC and refrigeration services in Saskatoon. Meet Clay Simmonds and learn about our commitment to quality service."
 >
   <!-- Hero -->
   <Hero
-    title="About Us"
-    subtitle="Learn more about who we are and why we do what we do."
+    title="About Fire & Frost Mechanical"
+    subtitle="Professional heating, cooling, and refrigeration services for Saskatoon and area."
     size="md"
   />
 
   <!-- Our Story Section -->
-  <Section title="Our Story">
+  <Section title="Our Commitment">
     <div class="mx-auto max-w-3xl">
       <div class="prose prose-lg prose-gray mx-auto">
         <p>
-          Founded in [YEAR], {siteConfig.name} was born from a simple idea: every business
-          deserves access to quality [services/products]. What started as a small operation
-          has grown into a trusted partner for businesses across [region/industry].
+          Fire & Frost Mechanical provides professional HVAC and refrigeration services
+          to homeowners and businesses in Saskatoon and the surrounding area. We specialize
+          in heating, cooling, and commercial refrigeration—delivering expert diagnostics
+          and reliable service on every job.
         </p>
         <p>
-          Our journey has been driven by a passion for helping our clients succeed. We've
-          had the privilege of working with hundreds of businesses, from startups to
-          established enterprises, and we've learned that success comes from understanding
-          each client's unique needs and delivering tailored solutions.
+          We believe in honest, straightforward service. When you call Fire & Frost Mechanical,
+          you'll get a professional who takes the time to diagnose the problem correctly,
+          explain what's happening in terms you can understand, and provide solutions without
+          unnecessary upselling.
         </p>
         <p>
-          Today, our team of experienced professionals continues to uphold the values that
-          have guided us from the beginning: integrity, excellence, and a relentless focus
-          on our clients' success.
+          With regular operating hours from 7:30 AM to 7:30 PM and 24/7 on-call service
+          available, we're here when you need us—whether it's routine maintenance or an
+          emergency repair.
         </p>
       </div>
     </div>
@@ -85,8 +66,8 @@ const values = [
 
   <!-- Mission & Values Section -->
   <Section
-    title="Our Values"
-    subtitle="The principles that guide everything we do."
+    title="What We Stand For"
+    subtitle="The principles that guide our work."
     background="gray"
   >
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -107,60 +88,87 @@ const values = [
   <!-- Team Section -->
   <Section
     id="team"
-    title="Meet Our Team"
-    subtitle="The people behind our success."
+    title="Meet Clay"
+    subtitle="The person behind Fire & Frost Mechanical."
   >
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {team.map((member) => (
-        <div class="text-center">
-          {member.image ? (
-            <img
-              src={member.image}
-              alt={member.name}
-              class="mx-auto h-40 w-40 rounded-full object-cover"
-            />
-          ) : (
-            <div class="mx-auto flex h-40 w-40 items-center justify-center rounded-full bg-gray-200">
-              <span class="text-4xl font-semibold text-gray-400">
-                {member.name.charAt(0)}
-              </span>
-            </div>
-          )}
-          <h3 class="mt-4 text-lg font-semibold text-gray-900">{member.name}</h3>
-          <p class="text-primary-600">{member.role}</p>
-          <p class="mt-2 text-gray-600">{member.bio}</p>
-        </div>
-      ))}
+    <div class="mx-auto max-w-md">
+      <div class="text-center">
+        <Image
+          src={clayImage}
+          alt="Clay Simmonds"
+          width={176}
+          height={176}
+          format="webp"
+          quality={85}
+          class="mx-auto h-44 w-44 rounded-full object-cover"
+        />
+        <h3 class="mt-4 text-lg font-semibold text-gray-900">Clay Simmonds</h3>
+        <p class="text-primary-600">Owner & Technician</p>
+        <p class="mt-2 text-gray-600">
+          Clay brings professional expertise and honest service to every job. Known for quick diagnostics and clear explanations, he takes pride in providing reliable HVAC and refrigeration services to Saskatoon and the surrounding area.
+        </p>
+      </div>
     </div>
   </Section>
 
-  <!-- Stats Section (optional) -->
+  <!-- Services Overview -->
   <Section background="primary">
-    <div class="grid gap-8 text-center sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-8 text-center sm:grid-cols-3">
       <div>
-        <div class="text-4xl font-bold text-white">10+</div>
-        <div class="mt-2 text-primary-100">Years in Business</div>
+        <div class="text-4xl font-bold text-white">Heating</div>
+        <div class="mt-2 text-primary-100">Furnace Repair & Maintenance</div>
       </div>
       <div>
-        <div class="text-4xl font-bold text-white">500+</div>
-        <div class="mt-2 text-primary-100">Happy Clients</div>
+        <div class="text-4xl font-bold text-white">Cooling</div>
+        <div class="mt-2 text-primary-100">AC Repair & Maintenance</div>
       </div>
       <div>
-        <div class="text-4xl font-bold text-white">1000+</div>
-        <div class="mt-2 text-primary-100">Projects Completed</div>
+        <div class="text-4xl font-bold text-white">Refrigeration</div>
+        <div class="mt-2 text-primary-100">Walk-in Coolers & Freezers</div>
       </div>
-      <div>
-        <div class="text-4xl font-bold text-white">99%</div>
-        <div class="mt-2 text-primary-100">Client Satisfaction</div>
+    </div>
+  </Section>
+
+  <!-- What Customers Say -->
+  <Section
+    title="What Customers Say"
+    subtitle="Hear from people who've worked with us."
+    background="gray"
+  >
+    <div class="mx-auto max-w-3xl">
+      <div class="space-y-6">
+        <blockquote class="rounded-lg bg-white p-6 shadow-sm">
+          <p class="text-gray-600 italic">
+            "Clay was very professional when he inspected my furnace and A/C unit. He was able
+            to diagnose the problem very quickly and explained what the issue was in a manner
+            that I could understand. Honest and no upsell pressure. Will definitely use
+            Fire & Frost Mechanical again in the future."
+          </p>
+          <footer class="mt-4 text-sm font-medium text-gray-900">— Jeremy Dela Cruz</footer>
+        </blockquote>
+        <blockquote class="rounded-lg bg-white p-6 shadow-sm">
+          <p class="text-gray-600 italic">
+            "Clay helped us when we moved to our new place to get our home and garage heaters
+            serviced. Clay is very professional and easy to work with. I recommend giving him a call!"
+          </p>
+          <footer class="mt-4 text-sm font-medium text-gray-900">— Andrew Owen</footer>
+        </blockquote>
+        <blockquote class="rounded-lg bg-white p-6 shadow-sm">
+          <p class="text-gray-600 italic">
+            "Didn't have hot water for two days trying to fix it myself, Clay came and in ten
+            minutes fixed the issue. He is the best!"
+          </p>
+          <footer class="mt-4 text-sm font-medium text-gray-900">— Calebhe Jordan</footer>
+        </blockquote>
       </div>
     </div>
   </Section>
 
   <!-- CTA -->
   <CTA
-    title="Want to Work With Us?"
-    description="We'd love to hear from you. Let's discuss how we can help your business."
-    primaryButton={{ text: "Get in Touch", href: "/contact" }}
+    title="Ready to Experience Quality Service?"
+    description="Contact us today for professional heating, cooling, or refrigeration service in Saskatoon and area."
+    primaryButton={{ text: "Call Now", href: `tel:${siteConfig.contact.phone.replace(/\D/g, '')}` }}
     variant="gray"
   />
 </Layout>
